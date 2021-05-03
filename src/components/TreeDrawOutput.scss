@@ -1,0 +1,31 @@
+.treeNode{
+    border: 1px blue solid;
+    width: auto;
+    height: 100%;
+    min-width: 75px;
+    min-height: 75px;
+}
+
+.treeNode > .nodeId{
+    font-weight: bold;
+    text-align: center;
+}
+
+.treeNode > .nodeChildren{
+    margin: 10px;
+    border: 1px #fff263 solid;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.nodeChildren > .treeNode{
+    margin: 10px;
+    
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
