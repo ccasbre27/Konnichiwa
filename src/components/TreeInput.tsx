@@ -69,16 +69,26 @@ export class TreeInput extends React.Component<TreeInputProps, TreeInputState>{
         return (
             <Card className="card">
                 <CardContent>
-                
-                    <Typography variant="h5" className="text" align="center" >
+                    <Typography 
+                        variant="h5" 
+                        className="text" 
+                        align="center" >
                         { this.props.subtitle }
                     </Typography>
-                    <TextField id="outlined-basic" fullWidth label="Tree source" variant="outlined" onChange={(ev) => {
-                        this.setState({
-                            treeText: ev.target.value
-                        })
-                    }}/>
-                    <Button fullWidth className="button" variant="contained" color="primary" onClick={ this.handleConvertArrayToTreeNode }>
+                    <TextField 
+                        fullWidth 
+                        label="Tree source" 
+                        variant="outlined" 
+                        onChange={(ev) => {
+                            this.setState({
+                                treeText: ev.target.value
+                            }) }}/>
+                    <Button 
+                        fullWidth 
+                        className="button" 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={ this.handleConvertArrayToTreeNode }>
                         Fetch
                     </Button>
                 </CardContent>

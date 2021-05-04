@@ -17,39 +17,32 @@ interface TreeJSONVisualizerState {
     prettyJsonTree: string
 }
 
-//export class TreeJSONVisualizer extends React.Component<TreeVisualizerProps, TreeJSONVisualizerState> {
-export const TreeJSONVisualizer: React.FunctionComponent<TreeVisualizerProps> = ( { treeNode } ) => {
-    
-    /*
+export class TreeJSONVisualizer extends React.Component<TreeVisualizerProps, TreeJSONVisualizerState> {
+
     constructor(props: TreeVisualizerProps) {
-        super(props);
-        /*
-        if(this.props.treeNode?.id != 'root' ) {
-            this.setState({ prettyJsonTree:  });
-        }
-       
-       
-
-        this.state = {
-            prettyJsonTree: ''
-        }
+        super(props);        
     }
-    */
-    /*
-
-(ev) => {
-                            this.setState({
-                                prettyJsonTree: JSON.stringify(ev.target.value, undefined, 4) 
-                            })
-                        }
-    */
     
-    //render() {
-
+    render() {
+        if(this.props.treeNode?.id != 'root' ) {
+            this.state = {
+                prettyJsonTree: JSON.stringify(this.props.treeNode, undefined, 4) 
+            }
+        }
+        else
+        {
+            this.state = {
+                prettyJsonTree: ''
+            }
+        }
         return (
             <Card className="card">
                 <CardContent>
-                    <Typography variant="h6" className="text" align="left" gutterBottom>
+                    <Typography 
+                        variant="h6" 
+                        className="text" 
+                        align="left" 
+                        gutterBottom>
                     Tree text
                     </Typography>
 
@@ -57,12 +50,16 @@ export const TreeJSONVisualizer: React.FunctionComponent<TreeVisualizerProps> = 
                         rowsMin={10}
                         className="textarea"
                         aria-label="maximum height" 
-                        value={ JSON.stringify(treeNode, undefined, 4)  } />
+                        value={ this.state.prettyJsonTree  } />
                 
-                    <Button fullWidth variant="contained" color="primary">
+                    <Button 
+                        fullWidth 
+                        variant="contained" 
+                        color="primary">
                         Process
                     </Button>
                 </CardContent>
             </Card>
         );
     };
+}

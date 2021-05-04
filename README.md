@@ -1,44 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Konnichiwa こんにちは
 
-## Available Scripts
+Konnichiwa is project developed in React with Typescript to provide a solution about the assigned problems. It is Single Page App and is based on the provided template.
 
-In the project directory, you can run:
+It is important to mention that I do not have so much knowledge with Typescript, to be honest this has been the biggest thing I have made in Typescript. I have worked a little bit in React but with JS (I know some features about ES6), about Hooks I have used just useState. In addition, I am taking a course on Udemy, I started last month.
 
-### `yarn start`
+## React items
+I am using different items of React for example:
++ Components
++ Hooks (useState)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Styles
+I am using SASS
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Problems
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Problem #1
+Here you can see my solution (the function is on TreeInput component), basically we will have this format 
+``` 
+    [id, leftChild, rightChild] 
+``` 
+and the leftChild and rightChild might be another array or null. The array must be just of one data type, string or number. 
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](path/parseArrayFunction.png?raw=true)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Expected data type
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As you can see we use recursivity and we are assuming to have the array in the expected format. I did a research and it took me some time to find we can verify this but we might be in a infinite loop that right now I do not know how to solve it but the solution is to create a tuple. So this tuple might have the following values
 
-### `yarn eject`
+| Property Name | Data type |
+| ------------- | ------------- |
+| id at position 0 | string or number  |
+| leftChild at position 1  | string array or number array or null |
+| rightChild at position 2  | string array or number array or null  |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It is important to mention that the leftChild and rightChild might have another binary tree and the same for their left and right children.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+So the type that I created for this is the following
+![](path/bintree_plain_tuple.png?raw=true)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I started to notice that I just could add trees at certain level so I added more options and in the following type I indicate that the left and right child might be of type BinTreePlain to allow having the same format in their right and left children but we would have to add one extra to allow one extra level.
 
-## Learn More
+![](path/bintree_plain_tuple_2.png?raw=true)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+At the end I decided not to add it at a deepest level but I just wanted to mention it because it took me some hours.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Functionality
+I take always the first value of the node because it will be the id, at least a node should have the id. After that I verify if the value at position 1 (left node) and 2(right node)
++ is an array and its lenght is bigger than 1, if so we should go to the children nodes.
++ is null, if so I set the leftNode as null.
++ the last scenario is a node with just the key so we create it and set it as left node
+
+Finally, we return the node.
+
+### Problem #2
+I developed this user interface using material ui, the component is TreeDrawOutput. On this UI you can do the following:
+1. Enter the array in the format [id, leftNode, rightNode]
+2. The tree output will display the entered array in a visual JSON format (to achive this I use JSON.stringify with the replacer as null and the space as 4).
+
+![](path/json_stringify.png?raw=true)
+
+3. The output will draw the tree using squares, to achieve this I am using the proposed classes on SASS.
+![](path/draw_tree_css.png?raw=true)
+
+
+![](path/index.png?raw=true)
+
+Once you enter an array in the accepted format and click on fetch you will see something like the following output
+
+![](path/index01.png?raw=true)
+
+## Libraries
+
+[Ray.so (Screenshots)](https://ray.so/)
+
+[Material UI](https://material-ui.com/)
+
+[react-jsonschema-form](https://react-jsonschema-form.readthedocs.io/en/latest/)
+
+
+
+
+

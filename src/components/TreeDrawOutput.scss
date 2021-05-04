@@ -16,16 +16,15 @@
     border: 1px #fff263 solid;
     width: auto;
     height: auto;
-    vertical-align: middle;
-    text-align: center;
 }
 
 .nodeChildren > .treeNode{
     margin: 10px;
-    
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-    text-align: center;
 }
+
+/*
+.treeNode > .nodeChildren > .treeNode :nth-last-child(-n + 1) {
+    border: 2px green solid;
+  }
+  */
 
