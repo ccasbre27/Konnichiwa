@@ -1,8 +1,12 @@
 # Konnichiwa こんにちは
 
-Konnichiwa is a project developed in React with Typescript to provide a solution about the assigned problems. It is a Single Page App based on the provided template.
+Konnichiwa is a project developed in React with Typescript to provide a solution about the assigned problems. It is a Single Page App based on the provided template so I am using yarn.
 
 It is important to mention that I do not have so much knowledge with Typescript (C# is my strongest technologie), to be honest this has been the biggest thing I have ever made in Typescript. I have worked a little bit in React but with JS (I know some features about ES6), about Hooks I have used just useState. In addition, I am taking a course on Udemy, I started last month. 
+
+## Run the project `yarn start`
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## React items
 I am using different items of React for example:
