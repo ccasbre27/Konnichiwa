@@ -20,19 +20,18 @@ interface TreeJSONVisualizerState {
 export class TreeJSONVisualizer extends React.Component<TreeVisualizerProps, TreeJSONVisualizerState> {
 
     constructor(props: TreeVisualizerProps) {
-        super(props);        
+        super(props);   
+        
+        this.state = {
+            prettyJsonTree: ''
+        }
+        
     }
     
     render() {
-        if(this.props.treeNode?.id != 'root' ) {
+        if(this.props.treeNode?.id != 'root' && this.state.prettyJsonTree === '') {
             this.state = {
                 prettyJsonTree: JSON.stringify(this.props.treeNode, undefined, 4) 
-            }
-        }
-        else
-        {
-            this.state = {
-                prettyJsonTree: ''
             }
         }
         return (
@@ -50,7 +49,15 @@ export class TreeJSONVisualizer extends React.Component<TreeVisualizerProps, Tre
                         rowsMin={10}
                         className="textarea"
                         aria-label="maximum height" 
-                        value={ this.state.prettyJsonTree  } />
+                        onChange={(ev) => {
+
+                            if(ev.target.value?.length > 0) {
+                                this.setState({
+                                    prettyJsonTree: ev.target.value
+                                }) 
+                            }
+                        }}
+                        value={ this.state.prettyJsonTree } />
                 
                     <Button 
                         fullWidth 
