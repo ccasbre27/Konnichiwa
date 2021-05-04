@@ -1,15 +1,15 @@
 # Konnichiwa こんにちは
 
-Konnichiwa is project developed in React with Typescript to provide a solution about the assigned problems. It is Single Page App and is based on the provided template.
+Konnichiwa is a project developed in React with Typescript to provide a solution about the assigned problems. It is a Single Page App based on the provided template.
 
-It is important to mention that I do not have so much knowledge with Typescript, to be honest this has been the biggest thing I have made in Typescript. I have worked a little bit in React but with JS (I know some features about ES6), about Hooks I have used just useState. In addition, I am taking a course on Udemy, I started last month.
+It is important to mention that I do not have so much knowledge with Typescript (C# is my strongest technologie), to be honest this has been the biggest thing I have ever made in Typescript. I have worked a little bit in React but with JS (I know some features about ES6), about Hooks I have used just useState. In addition, I am taking a course on Udemy, I started last month. 
 
 ## React items
 I am using different items of React for example:
 + Components
 + Hooks (useState)
 
-## Styles
+## Style
 I am using SASS
 
 
@@ -20,8 +20,6 @@ Here you can see my solution (the function is on TreeInput component), basically
 ``` 
     [id, leftChild, rightChild] 
 ``` 
-and the leftChild and rightChild might be another array or null. The array must be just of one data type, string or number. 
-
 
 ![](path/parseArrayFunction.png?raw=true)
 
@@ -49,9 +47,9 @@ At the end I decided not to add it at a deepest level but I just wanted to menti
 
 ### Functionality
 I take always the first value of the node because it will be the id, at least a node should have the id. After that I verify if the value at position 1 (left node) and 2(right node)
-+ is an array and its lenght is bigger than 1, if so we should go to the children nodes.
-+ is null, if so I set the leftNode as null.
-+ the last scenario is a node with just the key so we create it and set it as left node
++ Is an array and its lenght is bigger than 1: if so, we should go to the children nodes.
++ Is null: if so, I set the respective node as null.
++ The last scenario is a node with just the key: so we create it and set it as the respective node.
 
 Finally, we return the node.
 
@@ -62,7 +60,8 @@ I developed this user interface using material ui, the component is TreeDrawOutp
 
 ![](path/json_stringify.png?raw=true)
 
-3. The output will draw the tree using squares, to achieve this I am using the proposed classes on SASS.
+3. The output will draw the tree using squares, to achieve this I am using the proposed classes on SASS and I added the logic that was pending.
+
 ![](path/draw_tree_css.png?raw=true)
 
 
